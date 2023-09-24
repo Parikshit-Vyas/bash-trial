@@ -18,11 +18,11 @@ echo Hello Anon > file.txt  .... (for writing to file.txt the output of echo)
 echo Hello Anon2 >> file.txt   ... (for appending to file.txt)
 
 # < or << or <<<  symbol
-wc -w < file.txt  #(passing file.txt as input to wc command to print wordcount.. if not it will show wordcount filename)
-cat << EOF 
-This is a test file
-EOF
-wc -w <<< "Hello There Wordcount"
+# wc -w < file.txt  #(passing file.txt as input to wc command to print wordcount.. if not it will show wordcount filename)
+# cat << EOF 
+# This is a test file
+# EOF
+# wc -w <<< "Hello There Wordcount"
   
 #TEST OPERATORS
 echo $[ hello = hello ] (exit code 0 .. no error ... also space of each element everywhere is important)
@@ -101,6 +101,20 @@ fi
 echo one,two,three > f.txt
 awk -F, '{print $1}' f.txt
 awk -F, '{print $2}' f.txt # prints second element of f.txt
+
+#AWK DETAILED
+# {print $1} prints the first column .. in f.txt
+awk -F, '{print $1,$3}' f.txt # prints 1st and 3rd column 
+#Chaining commands
+ls -al | awk '{print $2,$3}'
+
+echo "Hello from linux tv" | awk '{print $1,$3}'
+
+awk '{print $NF}' f.txt # NF no of fields .. last column will be printed
+
+awk -F':' '{print}' f.txt # here : delimiter is used .. 
+
+
 
 #AWK by default uses space as separator
 # AWK -F flag for comma delimiter

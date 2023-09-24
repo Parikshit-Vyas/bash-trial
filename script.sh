@@ -120,12 +120,27 @@ awk -F':' '{print}' f.txt # here : delimiter is used ..
 # AWK -F flag for comma delimiter
 
 
-#SED change values in txt file using regex
+#SED change values in txt file using regex  (sed - stream editor)
 echo This is a sed test txt file lesgooo > sedtest.txt
 sed 's/sed/test/g' sedtest.txt
 
-
-# s - substitute mode
+# s - string search
 # word1 - we want to replace
 # word2 - that will betake place
 # g - globally  .. means every occurence in txxt file
+
+#SED command returns modified text but by default doesnt overwrite original file
+# to modify actual file (inplace)
+sed -i 's/pineapple/feta' f.txt
+
+#delimiter here is / .. but if we want to replace / .. change the delimiter (use case pathaddresses)
+
+sed -i 's:pineapple/:feta' f.txt # here delimiter is : and pineapple/ is replaced by feta
+
+# any symbol directly following s becomes delimiter
+
+#Removing something 
+sed -i 's/pineapple//' f.txt
+
+
+

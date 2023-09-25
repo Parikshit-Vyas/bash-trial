@@ -142,5 +142,25 @@ sed -i 's:pineapple/:feta' f.txt # here delimiter is : and pineapple/ is replace
 #Removing something 
 sed -i 's/pineapple//' f.txt
 
+#GREP command (searching a file .. CASE SENSITIVE BY DEFAULT)
+grep Port f.txt # (Prints every line that contains Port word)
+
+grep -v Port f.txt # (prints every line that doesnt contain Port word)
+
+grep -n Human f.txt # (Print line no also along with the line containing human word)
+
+grep -c Human f.txt # (No of Human words in entire file)
+
+grep -i human f.txt #(turns off case sensitivity )
+
+#multiple files
+grep gedit *
+
+#Recursive search in all subfolder etcs
+grep -r gedit *
+
+#COmbining flags
+grep -ri Error *
+
 
 
